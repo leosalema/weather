@@ -1,26 +1,31 @@
 import styled from 'styled-components/native';
 
-export const Block = styled.View`
+
+export const TabItem = styled.View`
+    width: ${props => props.width};
+    height: ${props => props.height};
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+    margin-left: 20px;
+    padding: 10px;
+    justify-content: center;
+    left: 0;
+`;
+
+
+export const TabText = styled.Text`
+    font-size: 13px;
+    color: #FFF;
+`;
+
+export const Container = styled.View`
+    flex: 1;
+    margin-top: 20px;
     justify-content: center;
     align-items: center;
-    background-color: #b2cae4;
-    border-width: 15;
-    border-style: solid;
-    border-color: #1e4072;
+`;
 
+export const Content = styled.View`
+    flex-direction: row; 
 `
 
-export const Title = styled.Text`
-    color: #FFF;
-    font-weight: bold;
-    font-size: 20;
-    text-align: center;
-`
-
-export const SubTitle = styled.Text`
-    color: #FFF;
-    font-size: 16;
-    font-weight: bold;
-    text-transform: uppercase;
-    text-align: center;
-`

@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {ActivityIndicator} from 'react-native';
 import {getWeather} from '../../store/weather/service';
-import {Container, Title} from './styles';
+import {Container, Content, Title, TabsContainer, Header} from './styles';
 import {Day} from './components/day';
 
 const Weather = () => {
@@ -20,8 +20,15 @@ const Weather = () => {
   } else {
     return (
       <Container>
+      <Header>
         <Title>{values.name} - {values.state}</Title>
-        {values.data.map ((item, key) => <Day key={key} data={item} />)}
+      </Header>
+        <Content>
+          <TabsContainer>
+            {values.data.map ((item, key) => <Day key={key} data={item} />)}
+          </TabsContainer>
+
+        </Content>
       </Container>
     );
   }

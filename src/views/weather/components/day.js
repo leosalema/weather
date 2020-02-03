@@ -1,5 +1,6 @@
 import React from 'react';
-import {Title, Block, SubTitle} from './styles';
+import {Dimensions} from 'react-native';
+import {Container, Content, TabsContainer, TabItem, TabText} from './styles';
 
 export const Day = props => {
   const {
@@ -15,33 +16,51 @@ export const Day = props => {
     sun,
   } = props.data;
 
+  let screenWidth = Dimensions.get ('window').width;
+  let screenHeight = Dimensions.get ('window').height;
+
   return (
-    <Block>
-      <SubTitle>{date_br}</SubTitle>
-      <Title>Temperatura: </Title>
-      <SubTitle>min: {temperature.min}°</SubTitle>
-      <SubTitle>max: {temperature.max}°</SubTitle>
+    <Container>
+      <TabItem width={screenWidth} height={screenHeight}>
+        <TabText>{date_br}</TabText>
+        <Content>
+          <TabText>Temperatura:</TabText>
+          <TabText>min: {temperature.min}°</TabText>
+          <TabText>max: {temperature.max}°</TabText>
 
-      <Title>Sensação Térmica:</Title>
-      <SubTitle>min: {thermal_sensation.min}°</SubTitle>
-      <SubTitle>max: {thermal_sensation.max}°</SubTitle>
+        </Content>
+        <Content>
+          <TabText>Sensação Térmica:</TabText>
+          <TabText>min: {thermal_sensation.min}°</TabText>
+          <TabText>max: {thermal_sensation.max}°</TabText>
 
-      <Title>Humidade:</Title>
-      <SubTitle>min: {humidity.min}%</SubTitle>
-      <SubTitle>max: {humidity.max}%</SubTitle>
+        </Content>
+        <Content>
+          <TabText>Humidade:</TabText>
+          <TabText>min: {humidity.min}%</TabText>
+          <TabText>max: {humidity.max}%</TabText>
+        </Content>
+        <Content>
+          <TabText>Chuva:</TabText>
+          <TabText>probabilidade: {rain.probability}%</TabText>
 
-      <Title>Chuva:</Title>
-      <SubTitle>probabilidade: {rain.probability}%</SubTitle>
+        </Content>
+        <Content>
+          <TabText>Vento:</TabText>
+          <TabText>velocidade média: {wind.velocity_avg} km</TabText>
 
-      <Title>Vento:</Title>
-      <SubTitle>velocidade média: {wind.velocity_avg} km</SubTitle>
+        </Content>
+        <Content>
+          <TabText>Text: </TabText>
+          <TabText>{text_icon.text.pt}</TabText>
 
-      <Title>Text: </Title>
-      <SubTitle>{text_icon.text.pt}</SubTitle>
-
-      <Title>Sol: </Title>
-      <SubTitle>nascer: {sun.sunrise}</SubTitle>
-      <SubTitle>por: {sun.sunset}</SubTitle>
-    </Block>
+        </Content>
+        <Content>
+          <TabText>Sol: </TabText>
+          <TabText>nascer: {sun.sunrise}</TabText>
+          <TabText>por: {sun.sunset}</TabText>
+        </Content>
+      </TabItem>
+    </Container>
   );
 };
