@@ -1,0 +1,3 @@
+BASE_URL=http://apiadvisor.climatempo.com.br/api/v1/forecast/locale
+TOKEN=your_token
+LOCALE=your_localidade
